@@ -23,6 +23,42 @@
 			"response": []
 		},
 		{
+			"name": "Get all published tutorials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tutorials",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tutorials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tutorials with title containing searchTerm",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/tutorials/search/ir",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tutorials",
+						"search",
+						"ir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get a comment by Id",
 			"request": {
 				"method": "GET",

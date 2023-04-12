@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,7 +45,7 @@ public class TutorialController {
 
 	@Autowired
 	TutorialRepository tutorialRepository;
-	
+		
 	
 	@GetMapping("/tutorials")
 	public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) { 
@@ -120,7 +118,7 @@ public class TutorialController {
 	
 	
 	@GetMapping("/tutorials/published")
-	public ResponseEntity<List<Tutorial>> findByPuublished() {
+	public ResponseEntity<List<Tutorial>> findByPublished() {
 		
 		List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
 		
@@ -129,5 +127,19 @@ public class TutorialController {
 		}
 		
 		return new ResponseEntity<>(tutorials, HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/tutorials/search")
+	public ResponseEntity<List<Tutorial>> findTutorialsByTitleContaining(@RequestParam("searchTerm") String searchTerm) {
+		
+		List<Tutorial> tutorials = tutorialRepository.findByTitleContaining(searchTerm);
+		
+		if(tutorials.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<>(tutorials, HttpStatus.OK);
+		
 	}
 }
