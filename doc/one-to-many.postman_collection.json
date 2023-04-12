@@ -28,12 +28,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tutorials",
+					"raw": "{{url}}/tutorials/published",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"tutorials"
+						"tutorials",
+						"published"
 					]
 				}
 			},
@@ -45,14 +46,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tutorials/search/ir",
+					"raw": "{{url}}/tutorials/search?searchTerm=st T",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tutorials",
-						"search",
-						"ir"
+						"search"
+					],
+					"query": [
+						{
+							"key": "searchTerm",
+							"value": "st T"
+						}
 					]
 				}
 			},
@@ -102,7 +108,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"title\" : \"My fourth tutorial\",\r\n    \"description\" : \"This is my fourth tutorial about Spring Boot JPA!\",\r\n    \"published\" : true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,7 +134,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"content\" : \"My third commento for tutorial 4!\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,13 +142,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/tutorials/{3}/comments",
+					"raw": "{{url}}/tutorials/4/comments",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tutorials",
-						"{3}",
+						"4",
 						"comments"
 					]
 				}
@@ -154,14 +160,23 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"My third comment for tutorial 4!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{url}}/comments/1",
+					"raw": "{{url}}/comments/9",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"comments",
-						"1"
+						"9"
 					]
 				}
 			},
@@ -173,13 +188,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/comments/1",
+					"raw": "{{url}}/comments/9",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"comments",
-						"1"
+						"9"
 					]
 				}
 			},
@@ -200,13 +215,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/tutorials/{3}/comments",
+					"raw": "{{url}}/tutorials/4/comments",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tutorials",
-						"{3}",
+						"4",
 						"comments"
 					]
 				}
@@ -219,13 +234,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tutorials/1",
+					"raw": "{{url}}/tutorials/3",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tutorials",
-						"1"
+						"3"
 					]
 				}
 			},
