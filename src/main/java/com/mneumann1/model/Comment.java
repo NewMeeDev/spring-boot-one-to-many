@@ -35,7 +35,7 @@ import lombok.Setter;
 public class Comment {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comment_gnerator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comment_generator")
 	private long id;
 	
 	@Lob
